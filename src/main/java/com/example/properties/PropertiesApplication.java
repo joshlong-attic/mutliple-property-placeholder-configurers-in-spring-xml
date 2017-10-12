@@ -13,7 +13,7 @@ public class PropertiesApplication {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext classPathXmlApplicationContext =
-                new ClassPathXmlApplicationContext("context.xml");
+            new ClassPathXmlApplicationContext("context.xml");
     }
 }
 
