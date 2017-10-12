@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.example.properties"/>
+
+    <context:property-placeholder location="default.properties"/>
+
+    <bean class="com.example.properties.ValueHoldingObject" id="bv">
+        <constructor-arg value="${b}"/>
+    </bean>
+
+    <bean class="com.example.properties.ValueHoldingObject" id="av">
+        <constructor-arg value="${a}"/>
+    </bean>
+
+    <bean class="com.example.properties.ListingInitializingBean">
+        <property name="all">
+            <list>
+                <ref bean="av"/>
+                <ref bean="bv"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
